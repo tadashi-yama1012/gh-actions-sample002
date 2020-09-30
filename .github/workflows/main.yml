@@ -24,7 +24,7 @@ jobs:
       - name: build Dockerfile and push image
         run: |
           IMAGE_NAME=test_container:${GITHUB_REF#refs/heads/}
-          docker build .app --tag docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}
+          docker build app --tag docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}
           docker login docker.pkg.github.com --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
           docker push docker.pkg.github.com/tadashi-yama1012/gh-actions-sample002/${IMAGE_NAME}
         env:
